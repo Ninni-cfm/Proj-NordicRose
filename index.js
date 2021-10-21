@@ -50,6 +50,7 @@ mongoose.connect(process.env.MONGODB, (err) => {
         throw err;
     }
     console.log("database is connected");
+
     const port = process.env.PORT || 3000;
     app.listen(port, () => console.log(`Server listening to localhost:${port}`));
 });
@@ -72,9 +73,18 @@ app.get('/', (req, res) => {
 // the  page for writing a new blog entry
 app.get('/add-new', (req, res) => {
 
-    res.render('pages/add-new', { title });
-});
+    // {}, { "id": 1, "url": 1, "title": 1 }).sort({ "id": -1 }.limit(6))
 
+    BlogEntry.aggregate(
+        [
+            { $match: { id: { "$gte": 1 } } },
+            { $sample: { size: 6 } },
+            { $project: { "id": 1, "url": 1, "title": 1 } }
+        ])
+        .then(results => {
+            res.render('pages/add-new', { title, results });
+        });
+});
 
 //----------------------------------------------------------------------------
 // show a blog article
@@ -88,27 +98,25 @@ app.get('/blog/:id', (req, res) => {
 // adding a new blog entry using method post
 app.post('/new', (req, res) => {
 
-    let blog = new BlogEntry({
-        id: getMaxId() + 1,
-        url: req.body.txtUrlPicture,
-        title: req.body.txtTitle,
-        body: req.body.txtArticle,
-        published_at: new Date(),
-        duration: Math.floor(req.body.txtArticle.length / 50) + 1,
-        author: req.body.txtAuthor,
-        author_bild: req.body.txtAuthorPicture,
-    });
-
-    blog.save()
+    BlogEntry.findOne({}, { "id": 1, "_id": 0 }).sort({ "id": -1 })
         .then(result => {
-            res.redirect('/');
-        })
-        .catch(err => console.log(err))
+            let maxId = (result != null) ? result.id + 1 : 1;
+            let blog = new BlogEntry({
+                id: maxId,
+                url: req.body.txtUrlPicture,
+                title: req.body.txtTitle,
+                body: req.body.txtArticle,
+                published_at: new Date(),
+                duration: Math.floor(req.body.txtArticle.length / 50) + 1,
+                author: req.body.txtAuthor,
+                author_bild: req.body.txtAuthorPicture,
+            });
+
+
+            blog.save()
+                .then(result => {
+                    res.redirect('/');
+                })
+                .catch(err => console.log(err));
+        });
 });
-
-
-//****************************************************************************
-// some helper functions
-function getMaxId() {
-    return 1001;
-}

@@ -1,16 +1,20 @@
-@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap");
+/****************************************************************************/
 /* font-family: 'Fira Code', monospace; */
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap");
 
-@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 /* font-family: 'Poppins', sans-serif; */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
+/* font-family: 'Open Sans', sans-serif; */
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
+
+/****************************************************************************/
 * {
     margin: 0;
     padding: 0;
 }
 
-a {
-    text-decoration: none;
+html {
 }
 
 /****************************************************************************/
@@ -29,6 +33,7 @@ header ul {
     gap: 100px;
 }
 header a {
+    text-decoration: none;
     color: #000;
 }
 header a:visited {
@@ -82,3 +87,78 @@ footer p:last-of-type {
 }
 
 /****************************************************************************/
+.mainIndex {
+}
+
+/****************************************************************************/
+.mainAddNew {
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+}
+.mainAddNew > section > h2 {
+    font-weight: 400;
+    font-size: 2rem;
+    padding: 4rem 0 1rem;
+}
+
+.mainAddNew form {
+    display: flex;
+    flex-direction: column;
+    width: 50rem;
+    margin: 0 auto;
+}
+.mainAddNew form > * {
+    background: #e5e5e5;
+    color: #000;
+    border: none;
+    outline: none;
+    border-radius: 0.25rem;
+    padding: 1rem;
+    margin-top: 0.9rem;
+
+    font-family: "Open Sans", sans-serif;
+    font-size: 1rem;
+}
+.mainAddNew form input[type="submit"] {
+    background: #000;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+/****************************************************************************/
+.mainBlog {
+}
+
+/****************************************************************************/
+.article-card {
+    width: 15rem;
+    padding: 0 1rem 0.5rem;
+}
+.article-card img {
+    width: 15rem;
+}
+
+/****************************************************************************/
+.read-next {
+    margin-top: 5rem;
+    border-top: 2px solid #000;
+}
+
+.read-next .eyes {
+    transform: translateY(-1.8rem);
+}
+.read-next h1 {
+    font-family: "Poppins", sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+.read-next .articles {
+    width: 60rem;
+    margin: 0 auto 4rem;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    font-family: "Fira Code";
+}

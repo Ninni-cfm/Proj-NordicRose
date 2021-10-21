@@ -1,5 +1,14 @@
 <section class="read-next">
 
-    <h3>What to read next</h3>
+    <img class="eyes" src="/img/eyes.svg" alt="eyes">
+
+    <h1>What to read next</h1>
+
+    <div class="articles">
+        <% results.forEach(article => { %>
+        <%- include('article-card', { article })  %>
+        <% }) %>
+    </div>
+
 
 </section>

@@ -1,5 +1,11 @@
 <div class="article-card">
-    <img src="<%= article.  %>" alt="">
+
+    <% if (article.url.includes('http')) { %>
+    <img src="<%= article.url  %>" alt="">
+    <% } else { %>
+    <img src="<%= `/img${article.url}`  %>" alt="">
+    <% } %>
+
     <p>
         <%= article.title %>
     </p>

@@ -23,20 +23,21 @@
     <!--**********************************************************************
         the main area...
     -->
-    <main>
+    <main class="mainAddNew">
 
         <!-- =================================================================
             add a new article
         -->
         <section>
-            <h4>ADD NEW ARTICLE</h4>
+            <h2>ADD NEW ARTICLE</h2>
             <div class="small-line"></div>
             <form action="/new" method="post">
-                <input type="text" name="txtTitle" placeholder="Title">
-                <input type="text" name="txtUrlPicture" placeholder="Url Picture">
-                <input type="text" name="txtAuthor" placeholder="Author">
-                <input type="text" name="txtAuthorPicture" placeholder="Author Picture">
-                <textarea name="txtArticle" cols="30" rows="10" placeholder="Write your article here..."></textarea>
+                <input type="text" name="txtTitle" placeholder="Title" required>
+                <input type="text" name="txtUrlPicture" placeholder="Url Picture" required>
+                <input type="text" name="txtAuthor" placeholder="Author" required>
+                <input type="text" name="txtAuthorPicture" placeholder="Author Picture" required>
+                <textarea name="txtArticle" cols="30" rows="4" placeholder="Write your article here..."
+                    required></textarea>
                 <input type="submit" value="SEND ARTICLE">
             </form>
         </section>
