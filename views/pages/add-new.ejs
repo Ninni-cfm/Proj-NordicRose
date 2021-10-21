@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <title><%= title %> </title>
+</head>
+
+<body>
+
+    <!--**********************************************************************
+        the header...
+    -->
+    <%- include('../includes/header')  %>
+
+    <!--**********************************************************************
+        the main area...
+    -->
+    <main>
+
+        <!-- =================================================================
+            add a new article
+        -->
+        <section>
+            <h4>ADD NEW ARTICLE</h4>
+            <div class="small-line"></div>
+            <form action="/new" method="post">
+                <input type="text" name="txtTitle" placeholder="Title">
+                <input type="text" name="txtUrlPicture" placeholder="Url Picture">
+                <input type="text" name="txtAuthor" placeholder="Author">
+                <input type="text" name="txtAuthorPicture" placeholder="Author Picture">
+                <textarea name="txtArticle" cols="30" rows="10" placeholder="Write your article here..."></textarea>
+                <input type="submit" value="SEND ARTICLE">
+            </form>
+        </section>
+
+        <!-- =================================================================
+            What to read next
+        -->
+        <%- include('../includes/read-next')  %>
+
+    </main>
+
+    <!--**********************************************************************
+        the footer...
+    -->
+    <%- include('../includes/footer')  %>
+
+    <script src="/js/main.js"></script>
+</body>
+
+</html>
