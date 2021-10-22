@@ -1,0 +1,11 @@
+<section class="all-articles">
+
+    <h1>All articles</h1>
+
+    <div class="articles">
+        <% results.forEach(article => { %>
+        <%- include('article-card', { article })  %>
+        <% }) %>
+    </div>
+
+</section>

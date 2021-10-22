@@ -65,7 +65,25 @@ mongoose.connect(process.env.MONGODB, (err) => {
 // the start page
 app.get('/', (req, res) => {
 
-    res.render('pages/index', { title, blogs });
+    let blogs = [];
+
+    // read the first blog message as an intro
+    BlogEntry.findOne({ "id": 0 }, { "id": 1, "title": 1, "url": 1, "_id": 0 })
+        .then(result => {
+            blogs.push(result);
+
+            // append some messages for reading next
+            BlogEntry.aggregate(
+                [
+                    { $match: { id: { "$gte": 1 } } },
+                    { $sample: { size: 12 } },
+                    { $project: { "id": 1, "url": 1, "title": 1 } }
+                ])
+                .then(results => {
+                    blogs.push(...results);
+                    res.render('pages/index', { title, blogs });
+                });
+        });
 });
 
 
@@ -86,11 +104,31 @@ app.get('/add-new', (req, res) => {
         });
 });
 
+
 //----------------------------------------------------------------------------
-// show a blog article
+// show a blog article (no id, redirect to first blog)
+app.get('/blog', (req, res) => {
+    res.redirect('/blog/1');
+});
+//----------------------------------------------------------------------------
+// show a blog article using the id of the message
 app.get('/blog/:id', (req, res) => {
 
-    res.render('pages/blog', { title, blogs, id: req.params.id });
+    // read blog message using the id parameter
+    BlogEntry.findOne({ "id": req.params.id }, { "_id": 0 })
+        .then(article => {
+
+            // append some messages for reading next
+            BlogEntry.aggregate(
+                [
+                    { $match: { "id": { "$ne": req.params.id } } },
+                    { $sample: { size: 6 } },
+                    { $project: { "id": 1, "url": 1, "title": 1 } }
+                ])
+                .then(results => {
+                    res.render('pages/blog', { title, article, results });
+                });
+        });
 });
 
 

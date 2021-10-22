@@ -28,13 +28,41 @@
         <!-- =================================================================
             detailed blog article
         -->
-        <article>
-            <h1>
-                <%= blogs[0].title %>
-            </h1>
-            <img src="<%=`/img${blogs[0].url}`  %> " alt="">
+        <article class="blog-article">
+
+            <h1> <%= article.title %> </h1>
+
+            <% if (article.url.includes('http')) { %>
+            <img src="<%= article.url  %>" alt="">
+            <% } else { %>
+            <img src="<%= `/img${article.url}` %>" alt="">
+            <% } %>
 
 
+            <div class="article-info">
+                <div>
+                    <img src="<%= article.author_bild %>" alt="">
+                    <div>
+                        <p><%= article.author %> </p>
+                        <p><%= article.published_at.toLocaleString(
+                        'en',
+                        {    
+                            //weekday: 'short', // long, short, narrow
+                            day: '2-digit', // numeric, 2-digit
+                            month: 'short', // numeric, 2-digit, long, short, narrow
+                            year: 'numeric' // numeric, 2-digit 
+                        }) %>
+                            &bull; <%= article.duration %> min read</p>
+                    </div>
+                </div>
+                <div class="social">
+                    <a href=""><img src="/img/facebook.png" alt="facebook"></a>
+                    <a href=""><img src="/img/twitter.png" alt="twitter"></a>
+                </div>
+
+            </div>
+
+            <p><%= article.body %> </p>
 
         </article>
 

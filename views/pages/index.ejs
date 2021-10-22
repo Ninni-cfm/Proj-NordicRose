@@ -28,18 +28,23 @@
         <!-- =================================================================
             the first article
         -->
-        <section>
+        <section class="intro">
             <img src="<%= `/img${blogs[0].url}` %>" alt="">
             <h1>
                 <%= blogs[0].title %>
             </h1>
         </section>
 
-        <section>
-            <h3>All articles</h3>
-
-
-
+        <!-- =================================================================
+            all articles
+        -->
+        <section class="all-articles">
+            <h1>All articles</h1>
+            <div class="articles">
+                <% blogs.slice(1).forEach(article => { %>
+                <%- include('../includes/article-card', { article })  %>
+                <% }) %>
+            </div>
         </section>
 
     </main>

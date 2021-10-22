@@ -1,12 +1,10 @@
-<div class="article-card">
-
-    <% if (article.url.includes('http')) { %>
-    <img src="<%= article.url  %>" alt="">
-    <% } else { %>
-    <img src="<%= `/img${article.url}`  %>" alt="">
-    <% } %>
-
-    <p>
-        <%= article.title %>
-    </p>
-</div>
+<article class="article-card">
+    <a href="<%= `/blog/${article.id}` %>">
+        <% if (article.url.includes('http')) { %>
+        <img src="<%= article.url  %>" alt="">
+        <% } else { %>
+        <img src="<%= `/img${article.url}` %>" alt="">
+        <% } %>
+        <p> <%= article.title %> </p>
+    </a>
+</article>

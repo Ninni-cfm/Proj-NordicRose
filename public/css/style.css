@@ -1,4 +1,5 @@
 /****************************************************************************/
+
 /* font-family: 'Fira Code', monospace; */
 @import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap");
 
@@ -9,15 +10,24 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
 
 /****************************************************************************/
+
 * {
     margin: 0;
     padding: 0;
 }
 
 html {
+    scroll-behavior: smooth;
+}
+
+h1 {
+    font-family: "Poppins", sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
 }
 
 /****************************************************************************/
+
 header {
     display: flex;
     justify-content: space-between;
@@ -32,11 +42,11 @@ header ul {
     display: flex;
     gap: 100px;
 }
-header a {
+a {
     text-decoration: none;
     color: #000;
 }
-header a:visited {
+a:visited {
     color: #000;
 }
 
@@ -45,6 +55,7 @@ header a:visited {
 }
 
 /****************************************************************************/
+
 footer {
     background: #000;
     color: #fff;
@@ -87,10 +98,86 @@ footer p:last-of-type {
 }
 
 /****************************************************************************/
+
 .mainIndex {
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+}
+.intro {
+    text-align: center;
+
+    width: 50rem;
+    margin: 0 auto;
+    padding: 4rem 0 6rem;
+}
+.intro h1 {
+    font-size: 3rem;
+}
+
+.all-articles {
+    border-top: 2px solid #000;
+
+    width: 40rem;
+    margin: 0 auto;
+}
+.all-articles h1 {
+    padding: 2rem;
 }
 
 /****************************************************************************/
+
+.mainBlog {
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+}
+.blog-article h1 {
+    width: 50rem;
+    margin: 0 auto;
+    font-size: 3rem;
+    padding: 3rem 0 6rem;
+    line-height: 1;
+}
+.blog-article img {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+.article-info {
+    width: 30rem;
+    border-top: 2px solid #000;
+    margin: 2rem auto 0;
+    padding-top: 2rem;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+    font-family: "Fira Code", monospace;
+}
+.article-info > div:first-of-type {
+    display: flex;
+}
+
+.article-info img {
+    width: 3rem;
+    border-radius: 2rem;
+    justify-self: end;
+}
+.article-info p {
+    padding-left: 1rem;
+}
+.article-info p:first-of-type {
+    font-weight: 700;
+}
+.blog-article > p {
+    text-align: left;
+    width: 30rem;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+/****************************************************************************/
+
 .mainAddNew {
     text-align: center;
     font-family: "Poppins", sans-serif;
@@ -116,6 +203,8 @@ footer p:last-of-type {
     padding: 1rem;
     margin-top: 0.9rem;
 
+    max-width: 48rem;
+
     font-family: "Open Sans", sans-serif;
     font-size: 1rem;
 }
@@ -124,13 +213,25 @@ footer p:last-of-type {
     color: #fff;
     font-size: 1rem;
     font-weight: 700;
+    max-width: 50rem;
 }
 
 /****************************************************************************/
-.mainBlog {
-}
 
-/****************************************************************************/
+.articles {
+    margin: 0 auto 4rem;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    font-family: "Fira Code";
+}
+.read-next .articles {
+    width: 60rem;
+}
+.all-articles .articles {
+    width: 40rem;
+}
 .article-card {
     width: 15rem;
     padding: 0 1rem 0.5rem;
@@ -140,25 +241,13 @@ footer p:last-of-type {
 }
 
 /****************************************************************************/
+
 .read-next {
     margin-top: 5rem;
     border-top: 2px solid #000;
 }
-
 .read-next .eyes {
     transform: translateY(-1.8rem);
 }
-.read-next h1 {
-    font-family: "Poppins", sans-serif;
-    font-size: 2.5rem;
-    font-weight: 700;
-}
-.read-next .articles {
-    width: 60rem;
-    margin: 0 auto 4rem;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
 
-    font-family: "Fira Code";
-}
+/****************************************************************************/
