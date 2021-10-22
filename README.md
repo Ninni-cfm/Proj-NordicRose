@@ -39,3 +39,16 @@ https://www.figma.com/file/y2Dc3dgHANHTNwcwErACvw/A-blog-template-Community?node
 > show dbs
 > use NordicRose
 ```
+
+---
+
+## ToDo List
+
+-   more error handling
+-   Reponsive design
+
+---
+
+## History
+
+2021-10-22: first release
