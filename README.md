@@ -46,6 +46,10 @@ https://www.figma.com/file/y2Dc3dgHANHTNwcwErACvw/A-blog-template-Community?node
 
 -   more error handling
 -   Reponsive design
+-   user sessions:
+    -   register
+    -   login
+    -   logout
 
 ---
 
